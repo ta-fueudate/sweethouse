@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/jquery.collapser.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <style type="text/css"><!--
+/*ここに調整CSS記述*/
+.jumbotron { background:url(img/curry.png) center no-repeat; background-size: cover;}
+/* page-top */
+#page-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	font-size: 77%;
+}
+#page-top a {
+	background: #666;
+	text-decoration: none;
+	color: #fff;
+	width: 100px;
+	padding: 30px 0;
+	text-align: center;
+	display: block;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+#page-top a:hover {
+	text-decoration: none;
+	background: #999;
+}
+--></style>
+<script>
+$(document).ready(function(){
+  $('.demo').collapser({
+    mode: 'chars',
+    truncate: 10,
+    showText: 'つづきをよむ？',
+    hideText: 'かくす？'
+  });
+});
+$(function() {
+    var showFlag = false;
+    var topBtn = $('#page-top');
+    topBtn.css('bottom', '-100px');
+    var showFlag = false;
+    //スクロールが100に達したらボタン表示
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            if (showFlag == false) {
+                showFlag = true;
+                topBtn.stop().animate({'bottom' : '20px'}, 200);
+            }
+        } else {
+            if (showFlag) {
+                showFlag = false;
+                topBtn.stop().animate({'bottom' : '-100px'}, 200);
+            }
+        }
+    });
+    //スクロールしてトップ
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+
+    <title>カレー好きによるカレーなサイトでございます！</title>
+  </head>
+  <body>
+    <nav class="navbar-inverse">
+        <div class="container">
+            <!-- 2.ヘッダ情報 -->
+            <div class="navbar-header">
+                <a class="navbar-brand">sweethouse</a>
+            </div>
+            <!-- 3.リストの配置 -->
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">カレーがすきです</a></li>
+                <li><a href="member.html">カレー好きメンバー紹介</a></li>
+                <li><a href="#">カレーな一覧</a></li>
+            </ul>
+            <!-- 4.ボタン -->
+            <button type="button" class="btn btn-default navbar-btn">
+                <span class="glyphicon glyphicon-envelope"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 style="color:white">カレーが大好きsweethouseギルド</h1>
+        <span style="color:white">皆カレー食べてるか！！？
+        <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>-->
+      </div>
+    </div>
+    <div class="container">
+      <blockquote>
+        ギルドについて
+      </blockquote>
+      <p class="demo">ICAROS ONLINEのパルナサーバーで大活躍？しているギルドです。</p>
+      <br><br><br>
+      <blockquote>
+        近況
+      </blockquote>
+      <p class="demo"></p>
+<br><br><br>
+      <blockquote>
+        参考　攻略ID動画
+      </blockquote>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NG75iqs6LxQ" frameborder="0" allowfullscreen></iframe>
+
+    </div>
+
+
+<p id="page-top"><a href="#wrap">PAGE TOP</a></p>
+
+  </body>
+</html>

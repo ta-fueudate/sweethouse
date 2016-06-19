@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/jquery.collapser.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <title>カレー好きメンバー紹介</title>
+    <style type="text/css"><!--
+/*ここに調整CSS記述*/
+.jumbotron { background:url(img/patora_02.png) center no-repeat; background-size: cover;}
+/* page-top */
+#page-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	font-size: 77%;
+}
+#page-top a {
+	background: #666;
+	text-decoration: none;
+	color: #fff;
+	width: 100px;
+	padding: 30px 0;
+	text-align: center;
+	display: block;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+#page-top a:hover {
+	text-decoration: none;
+	background: #999;
+}
+#headbar {
+   /* ▼上端に固定するCSS */
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+
+   /* ▼バーの装飾 */
+   background-color: green;  /* 背景色 */
+   color: white;             /* 文字色 */
+   box-shadow: 3px 3px 3px rgba(0,128,0,0.5); /* 影 */
+}
+--></style>
+<script>
+$(document).ready(function(){
+  $('.demo').collapser({
+    mode: 'chars',
+    truncate: 10,
+    showText: 'つづきをよむ',
+    hideText: 'かくす'
+  });
+});
+$(function() {
+    var showFlag = false;
+    var topBtn = $('#page-top');
+    topBtn.css('bottom', '-100px');
+    var showFlag = false;
+    //スクロールが100に達したらボタン表示
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            if (showFlag == false) {
+                showFlag = true;
+                topBtn.stop().animate({'bottom' : '20px'}, 200);
+            }
+        } else {
+            if (showFlag) {
+                showFlag = false;
+                topBtn.stop().animate({'bottom' : '-100px'}, 200);
+            }
+        }
+    });
+    //スクロールしてトップ
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+   // ページの読み込みが完了してから実行
+   $(function() {
+      // スクロール途中から表示したいメニューバーを指定
+      var navBox = $("#headbar");
+
+      // メニューバーは初期状態では消しておく
+      navBox.hide();
+
+      // 表示を開始するスクロール量を設定(px)
+      var TargetPos = 350;
+
+      // スクロールされた際に実行
+      $(window).scroll( function() {
+         // 現在のスクロール位置を取得
+         var ScrollPos = $(window).scrollTop();
+         // 現在のスクロール位置と、目的のスクロール位置を比較
+         if( ScrollPos > TargetPos ) {
+            // 表示(フェイドイン)
+            navBox.fadeIn();
+         }
+         else {
+            // 非表示(フェイドアウト)
+            navBox.fadeOut();
+         }
+      });
+   });
+</script>
+  </head>
+  <body>
+    <div id="headbar">
+      <nav class="navbar-inverse">
+          <div class="container">
+              <!-- 2.ヘッダ情報 -->
+              <div class="navbar-header">
+                  <a class="navbar-brand">sweethouse</a>
+              </div>
+              <!-- 3.リストの配置 -->
+              <ul class="nav navbar-nav">
+                  <li><a href="index.html">カレーがすきです</a></li>
+                  <li class="active"><a href="#">カレー好きメンバー紹介</a></li>
+                  <li><a href="#">カレーな一覧</a></li>
+              </ul>
+              <!-- 4.ボタン -->
+              <button type="button" class="btn btn-default navbar-btn">
+                  <span class="glyphicon glyphicon-envelope"></span>
+              </button>
+          </div>
+      </nav>
+</div>
+    <nav class="navbar-inverse">
+        <div class="container">
+            <!-- 2.ヘッダ情報 -->
+            <div class="navbar-header">
+                <a class="navbar-brand">sweethouse</a>
+            </div>
+            <!-- 3.リストの配置 -->
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">カレーがすきです</a></li>
+                <li class="active"><a href="#">カレー好きメンバー紹介</a></li>
+                <li><a href="#">カレーな一覧</a></li>
+            </ul>
+            <!-- 4.ボタン -->
+            <button type="button" class="btn btn-default navbar-btn">
+                <span class="glyphicon glyphicon-envelope"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 style="color:white">カレー好きメンバー紹介！！</h1>
+        <span style="color:white">君はもうカレーを食べたか？
+        <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>-->
+      </div>
+    </div>
+<div class="container">
+  <div class="media">
+  <!-- 1.画像の配置 -->
+  <a class="media-left" href="#">
+      <img class="media-object" src="img/curry.png">
+  </a>
+  <!-- 2.画像の説明 -->
+  <div class="media-body">
+      <h4 class="media-heading">アルマ師匠(スーパーギルマス)</h4>
+      <p>プリースト</p>
+      <p>よく髪の毛を金色にして怒ります。ママン</p>
+      <p>スープカレーが好き</p>
+  </div>
+</div>
+<hr />
+<div class="media">
+  <!-- 2.画像の説明 -->
+  <div class="media-body">
+      <h4 class="media-heading">CharisFether</h4>
+      <p>ガーディアン</p>
+      <p>カリスフェザー、通称カリスさん、カリカリ、ガリガリ、ガリガリ君！！<br>スロット好きないいやつです。ちなみに最近妹が太ったそうです</p>
+      <p>牛肉カレーじゃないと認めないそうです</p>
+  </div>
+  <!-- 1.画像の配置 -->
+  <a class="media-right" href="#">
+      <img class="media-object" src="img/curry.png">
+  </a>
+  <hr />
+  <div class="media">
+  <!-- 1.画像の配置 -->
+  <a class="media-left" href="#">
+      <img class="media-object" src="img/curry.png">
+  </a>
+  <!-- 2.画像の説明 -->
+  <div class="media-body">
+      <h4 class="media-heading">つーぽん</h4>
+      <p>アサシン</p>
+      <p>通称つーさん、前に色々あったそうでやさしくしてください</p>
+      <p>カレーに醤油！？まじか</p>
+  </div>
+  <hr />
+  <div class="media">
+    <!-- 2.画像の説明 -->
+    <div class="media-body">
+        <h4 class="media-heading">ブルテリア</h4>
+        <p>ウィザード</p>
+        <p>通称ルパン、銭なんとかさんによく追っかけられて、おさかな加えて・・・・、もういいです。師匠とケンカするのが日課です。人に
+        物を教えるのが好き。</p>
+        <p>ブルドックソースいれんの！？だめっしょ</p>
+    </div>
+    <!-- 1.画像の配置 -->
+    <a class="media-right" href="#">
+        <img class="media-object" src="img/curry.png">
+    </a>
+    <hr />
+    </div>
+    <div class="media">
+    <!-- 1.画像の配置 -->
+    <a class="media-left" href="#">
+        <img class="media-object" src="img/curry.png">
+    </a>
+
+    <!-- 2.画像の説明 -->
+    <div class="media-body">
+        <h4 class="media-heading">AKITO0609</h4>
+        <p>アサシン</p>
+        <p>通称アッキー、名古屋に住んでます。住所は・・・・言いませんよ。リアルレンジャーであなたの
+        ハートを射抜きます。</p>
+        <p>牡蠣カレーが好き。いつかあたるな</p>
+    </div>
+    <hr />
+    <div class="media">
+      <!-- 2.画像の説明 -->
+      <div class="media-body">
+          <h4 class="media-heading">モレク</h4>
+          <p>バーサーカ</p>
+          <p>ただの脳筋、PTリーダーにしてはいけない人です。アイテム全部取られます。たまに戦闘中、本当に寝ますzzzz</p>
+          <p>皆大好きカツカレー</p>
+      </div>
+
+      <!-- 1.画像の配置 -->
+      <a class="media-right" href="#">
+          <img class="media-object" src="img/curry.png">
+      </a>
+</div>
+<br><br><br>
+<p id="page-top"><a href="#wrap">PAGE TOP</a></p>
+  </body>
+</html>
